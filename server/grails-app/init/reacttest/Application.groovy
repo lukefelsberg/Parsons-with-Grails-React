@@ -1,4 +1,4 @@
-package reacttest
+package parsonOnGrails
 
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration

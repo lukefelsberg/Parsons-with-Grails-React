@@ -1,4 +1,4 @@
-package reacttest
+package parsonOnGrails
 
 import grails.core.GrailsApplication
 import grails.plugins.*
