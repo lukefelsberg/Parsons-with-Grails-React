@@ -12,7 +12,7 @@ class Solution {
     datetime: Moment;
     
     constructor (id: string, problemid: string, UFID: string, solution: string[], datetime: Moment) {
-        this.id = id;
+        this.id = String(parseInt(id) + 1);
         this.problemid = problemid;
         this.UFID = UFID;
         this.solution = solution;

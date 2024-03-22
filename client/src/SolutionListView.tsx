@@ -5,8 +5,8 @@ import Solution from './Solution';
 import moment from 'moment';
 import { useLocation } from 'react-router-dom';
 
-
-const API_URL = process.env.REACT_APP_API_URI
+const API_URL = "http://localhost:8080"
+//const API_URL = process.env.REACT_APP_API_URI
 
 function DisplaySolutions(solutions: Solution[]) {
     let elements = [];
@@ -46,7 +46,7 @@ function SolutionListView() {
     const [solutions, setSolutions] = useState<Solution[]>([]);
 
     const fetchSolutionList = () => {
-        fetch(API_URL+"solutionlist?problemid="+problemid)
+        fetch(API_URL+"/solutions/")
           .then(response => {
             console.log(API_URL)
             console.log(response)
@@ -57,10 +57,12 @@ function SolutionListView() {
             let solutions: Solution[] = [];
             for (let key in data) {
               let entry = data[key];
-              let sol = new Solution(key, entry.problemid, entry.UFID, entry.solution, moment(entry.datetime))
-              //if (sol.hasTitle())
-              solutions.push(sol)
-              console.log(solutions)
+              if (problemid === entry.problemid) {
+                let sol = new Solution(key, entry.problemid, entry.UFID, entry.solution, moment(entry.date))
+                solutions.push(sol)
+                console.log(sol.datetime)
+                console.log(solutions)
+              }
             }
             setSolutions(solutions)
           })

@@ -9,5 +9,5 @@ class Problem {
     String description
     String[] problem
     String submitter
-    Date date = new Date()
+    Date datetime
 }

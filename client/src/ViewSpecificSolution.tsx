@@ -9,7 +9,8 @@ import Solution from './Solution';
 import moment from 'moment';
 
 
-const API_URL = process.env.REACT_APP_API_URI
+//const API_URL = process.env.REACT_APP_API_URI
+const API_URL = "http://localhost:8080"
 
 function getMorphedList(order: number[], list: string[]) {
     let morphed_list = []
@@ -23,6 +24,7 @@ function ViewSpecificSolution() {
 
     console.log(API_URL)
     let rawData: any = useLoaderData();
+    console.log(rawData)
     let solution = new Solution(rawData.id, rawData.problem_uid, rawData.UFID, rawData.solution, moment(rawData.datetime))
     let lines = solution.solution
     console.log(lines)

@@ -66,7 +66,7 @@ ctrl-f for "getAll" to get all query params from the URL
       path: "viewsolutions/:problemid",
       loader: async ({ request, params }) => {
         return fetch(
-          API_URL+`solutionlist?problemid=`+params.problemid, // use API route for specific problem solutions (still need to add)
+          "http://localhost:8080/solutions/"+params.problemid, // use API route for specific problem solutions (still need to add)
           { signal: request.signal }
         );
       },
@@ -76,7 +76,7 @@ ctrl-f for "getAll" to get all query params from the URL
       path: "view/:solutionid",
       loader: async ({ request, params }) => {
         return fetch(
-          API_URL+`solution?solutionid=`+params.solutionid,
+          "http://localhost:8080/solutions/"+params.solutionid,
           { signal: request.signal }
         );
       },

@@ -22,7 +22,8 @@ https://github.com/react-dnd/react-dnd/tree/main/packages/examples/src/04-sortab
 
 */
 
-const API_URL = process.env.REACT_APP_API_URI
+const API_URL = "http://localhost:8080"
+//const API_URL = process.env.REACT_APP_API_URI
 
 function getMorphedList(order: number[], list: string[]) {
     let morphed_list = []
@@ -52,13 +53,14 @@ function SolveProblemView() {
             "solution": data,
             "problemid": problemid
         }
+        console.log(payload.problemid)
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': API_URL? API_URL : "*"},
-            body: JSON.stringify({body: payload})
+            body: JSON.stringify(payload)
         };
-        fetch(API_URL+'solution', requestOptions)
+        fetch(API_URL+'/solutions', requestOptions)
             .then(response => {
                 if (response.ok) {
                     response.json()
@@ -93,7 +95,7 @@ function SolveProblemView() {
 
     console.log(API_URL)
     let rawData: any = useLoaderData();
-    let problem = new Problem(rawData.id, rawData.title, rawData.description, rawData.problem, rawData.submitter, moment(rawData.datetime))
+    let problem = new Problem(String(parseInt(rawData.id)-1), rawData.title, rawData.description, rawData.problem, rawData.submitter, moment(rawData.datetime))
     let lines = problem.problem
     console.log(lines)
 
