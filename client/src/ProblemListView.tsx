@@ -20,6 +20,7 @@ https://github.com/react-dnd/react-dnd/tree/main/packages/examples/src/04-sortab
 */
 
 const API_URL = "http://localhost:8080"
+//was const API_URL = process.env.REACT_APP_API_URI
 
 function DisplayProblems(problems: Problem[]) {
     let elements = [];

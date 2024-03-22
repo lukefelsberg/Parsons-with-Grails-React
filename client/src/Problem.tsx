@@ -13,7 +13,7 @@ class Problem {
     datetime: Moment;
     
     constructor (id: string, title: string, desc: string, problem: string[], submitter: string, datetime: Moment) {
-        this.id = id;
+        this.id = String(parseInt(id) + 1);
         this.title = title;
         this.desc = desc;
         this.problem = problem;

@@ -18,6 +18,7 @@ import { padding } from '@mui/system';
 import ProblemListView from './ProblemListView';
 import ViewSpecificSolution from './ViewSpecificSolution';
 import AboutView from './AboutView';
+//import collegeLogo from "./assets/College-of-Education_Official-Logo_Black.png"
 
 function App() {
 
@@ -31,6 +32,7 @@ ctrl-f for "getAll" to get all query params from the URL
 
 
   let dummyStringList: string[] = ['A', 'B', 'C', 'D', 'E'];
+  //const API_URL = "http://localhost:8080"
   const API_URL = process.env.REACT_APP_API_URI
 
   const router = createBrowserRouter([
@@ -54,7 +56,7 @@ ctrl-f for "getAll" to get all query params from the URL
       path: "solve/:problemid",
       loader: async ({ request, params }) => {
         return fetch(
-          "http://localhost:8080/problems/1",
+          "http://localhost:8080/problems/" + params.problemid,
           { signal: request.signal }
         );
       },
@@ -119,7 +121,7 @@ ctrl-f for "getAll" to get all query params from the URL
             <School />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Parson's problems platform
+            Parsons Problems Platform
           </Typography>
         </Toolbar>
       </AppBar>

@@ -72,7 +72,7 @@ function SolutionListView() {
 
     return <div>
       <Typography>
-        Viewing all solutions for problem {problemid}
+        Viewing all solutions for Problem {problemid}:
       </Typography>
       {DisplaySolutions(solutions)}
     </div>

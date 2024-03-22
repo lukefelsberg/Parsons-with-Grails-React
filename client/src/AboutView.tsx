@@ -20,7 +20,7 @@ function getMorphedList(order: number[], list: string[]) {
 function AboutView() {
 
     
-    let lines: string[] = ['public static void main(String[] args) {','}', 'System.out.println("Hello World"', '}','class HelloWord {'];
+    let lines: string[] = ['public static void main(String[] args) {','}', 'System.out.println("Hello World")', '}','class HelloWord {'];
 
     let keys: number[] = Array.from(lines.keys())
 
@@ -82,7 +82,7 @@ function AboutView() {
 
     return <Grid item xs={12} md={6}>
         <Typography sx={{ mt: 4, mb: 2 }} variant="h5" component="div">
-            Welcome to the Parson's Problem System! On this web app, you can create custom "drag-and-drop" style code problems for students.
+            Welcome to the Parsons Problems Platform! On this web app, you can create custom "drag-and-drop" code problems for students.
         </Typography>
         <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
             To get started, create a new problem using the "New Problem" button on the home page. Give the problem a unique title and corresponding description, type the code you'd like students to re-order, and add your creator name.

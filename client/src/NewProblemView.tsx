@@ -7,8 +7,8 @@ import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { ArrowDownward, ArrowUpward, Send } from '@mui/icons-material';
 import { setConstantValue } from 'typescript';
 
-
-const API_URL = process.env.REACT_APP_API_URI
+const API_URL = "http://localhost:8080"
+//const API_URL = process.env.REACT_APP_API_URI
 
 
 function NewProblemView() {
@@ -37,11 +37,10 @@ function NewProblemView() {
         }
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': API_URL? API_URL : "*"},
-            body: JSON.stringify({body: payload})
+            headers: { 'Content-Type': 'application/json'},
+            body: String(JSON.stringify(payload))
         };
-        fetch(API_URL+'problem', requestOptions)
+        fetch(API_URL+'/problems', requestOptions)
             .then(response => {
                 if (response.ok) {
                     response.json()
