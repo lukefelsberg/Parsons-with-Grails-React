@@ -11,23 +11,30 @@ This project runs entirely locally right now, and development focused on getting
 Here are some screenshots the the app in action--
 
 Stored Problems
-![Problem List](https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/ProblemList.png)
 <kbd>
 <img src="https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/ProblemList.png">
 <kbd>
 
 
 Problem Actions
-![Problem List](https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/ProblemOptions.png)
+<kbd>
+<img src="https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/ProblemOptions.png">
+<kbd>
 
 Solving
-![Problem List](https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/SolveAndSubmit.png)
+<kbd>
+<img src="https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/SolveAndSubmit.png">
+<kbd>
 
-View Submission
-![Problem List](https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/ViewSubmission.png)
+View Newly Submitted Problem
+<kbd>
+<img src="https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/ViewSubmission.png">
+<kbd>
 
 Create New Problem
-![Problem List](https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/CreateProblem.png)
+<kbd>
+<img src="https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/CreateProblem.png">
+<kbd>
 
 ## Implementation Background
 
