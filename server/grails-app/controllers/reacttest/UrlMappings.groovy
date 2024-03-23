@@ -1,4 +1,4 @@
-package reacttest
+package parsonOnGrails
 
 class UrlMappings {
 
