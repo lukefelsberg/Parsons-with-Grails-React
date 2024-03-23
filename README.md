@@ -6,6 +6,10 @@ An app based on Luke Felsberg's UF Senior Project, with functionality implemente
 
 Currently, this project provides the ability to create and solve Parsons Problems (https://en.wikipedia.org/wiki/Parsons_problem). Basically, these are drag-and-drop code problems intended for introductory programming course administration.
 
+This project runs entirely locally right now, and development focused on getting familiar with Grails as a web-app framework. Without a need to connect to an external database (like mySQL, DB2, etc.), Grails' server implementation (explained further below) allows for easy storage of test data and communcation with the React client via REST calls.
+
+Here are some screenshots the the app in action--
+
 
 ## Implementation Background
 
