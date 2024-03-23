@@ -51,8 +51,10 @@ function SolveProblemView() {
         let payload = {
             "UFID": UFID,
             "solution": data,
-            "problemid": problemid
+            "problemid": problemid,
+            "datetime": new Date()
         }
+        console.log(payload)
         console.log(payload.problemid)
         const requestOptions = {
             method: 'POST',

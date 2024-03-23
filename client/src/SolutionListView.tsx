@@ -58,9 +58,8 @@ function SolutionListView() {
             for (let key in data) {
               let entry = data[key];
               if (problemid === entry.problemid) {
-                let sol = new Solution(key, entry.problemid, entry.UFID, entry.solution, moment(entry.date))
+                let sol = new Solution(key, entry.problemid, entry.UFID, entry.solution, moment(entry.datetime))
                 solutions.push(sol)
-                console.log(sol.datetime)
                 console.log(solutions)
               }
             }

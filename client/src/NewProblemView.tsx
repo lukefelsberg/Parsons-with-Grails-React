@@ -33,7 +33,8 @@ function NewProblemView() {
             "submitter": email,
             "title": title,
             "problem": data,
-            "description": description
+            "description": description,
+            "datetime": new Date()
         }
         const requestOptions = {
             method: 'POST',
