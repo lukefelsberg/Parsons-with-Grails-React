@@ -12,6 +12,10 @@ Here are some screenshots the the app in action--
 
 Stored Problems
 ![Problem List](https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/ProblemList.png)
+<kbd>
+<img src="https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/ProblemList.png">
+<kbd>
+
 
 Problem Actions
 ![Problem List](https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/ProblemOptions.png)
