@@ -97,7 +97,7 @@ function SolveProblemView() {
 
     console.log(API_URL)
     let rawData: any = useLoaderData();
-    let problem = new Problem(String(parseInt(rawData.id)-1), rawData.title, rawData.description, rawData.problem, rawData.submitter, moment(rawData.datetime))
+    let problem = new Problem(rawData.id, rawData.title, rawData.description, rawData.problem, rawData.submitter, moment(rawData.datetime))
     let lines = problem.problem
     console.log(lines)
 

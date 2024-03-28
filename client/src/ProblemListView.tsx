@@ -66,7 +66,7 @@ function ProblemListView() {
             let problems: Problem[] = [];
             for (let key in data) {
               let entry = data[key];
-              let prob = new Problem(key, entry.title, entry.description, entry.problem, entry.submitter, moment(entry.datetime))
+              let prob = new Problem(entry.id, entry.title, entry.description, entry.problem, entry.submitter, moment(entry.datetime))
               if (prob.hasTitle())
               problems.push(prob)
               console.log(problems)

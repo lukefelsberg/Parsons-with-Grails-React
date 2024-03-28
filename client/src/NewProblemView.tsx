@@ -7,7 +7,7 @@ import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { ArrowDownward, ArrowUpward, Send } from '@mui/icons-material';
 import { setConstantValue } from 'typescript';
 
-const API_URL = "http://localhost:8080"
+  const API_URL_NEW = process.env.REACT_APP_API_URL
 //const API_URL = process.env.REACT_APP_API_URI
 
 
@@ -41,7 +41,7 @@ function NewProblemView() {
             headers: { 'Content-Type': 'application/json'},
             body: String(JSON.stringify(payload))
         };
-        fetch(API_URL+'/problems', requestOptions)
+        fetch(API_URL_NEW+'/problems', requestOptions)
             .then(response => {
                 if (response.ok) {
                     response.json()
@@ -82,9 +82,10 @@ function NewProblemView() {
       
 
 
-    return <Grid container xs={12} spacing={1}>
-        <Grid xs={2} display="flex" justifyContent="center" alignItems="center">
+    return <Grid container style={{gap:12}} padding={2} columns={{xs:2}}>
+        <Grid xs={2} display="flex" justifyContent="left" alignItems="center" columns={{xs:2}}>
         <TextField
+            fullWidth
             id="outlined-multiline-static"
             label="Title"
             defaultValue=""
@@ -92,30 +93,32 @@ function NewProblemView() {
             onChange={e => setTitle(e.target.value)}>
         </TextField>
         </Grid>
-        <Grid xs={2} display="flex" justifyContent="center" alignItems="center">
+        <Grid xs={2} display="flex" justifyContent="left" alignItems="center">
         <TextField
+            fullWidth
             id="outlined-multiline-static"
             label="Description"
             multiline
-            rows={6}
             defaultValue=""
             value={description}
             onChange={e => setDescription(e.target.value)}>
         </TextField>
         </Grid>
-        <Grid xs={2} display="flex" justifyContent="center" alignItems="center">
+        <Grid xs={2} display="flex" justifyContent="left" alignItems="center">
         <TextField
+            fullWidth            
             id="outlined-multiline-static"
             label="Code"
             multiline
-            rows={6}
+            rows={8}
             defaultValue=""
             value={code}
             onChange={e => setCode(e.target.value)}>
         </TextField>
         </Grid>
-        <Grid xs={2} display="flex" justifyContent="center" alignItems="center">
+        <Grid xs={1} display="flex" justifyContent="left" alignItems="center">
         <TextField
+            style={{width:400}}
             id="outlined-multiline-static"
             label="Submitter email"
             defaultValue=""
@@ -123,10 +126,10 @@ function NewProblemView() {
             onChange={e => setEmail(e.target.value)}>
         </TextField>
         </Grid>
-        <Grid xs={1} display="flex" justifyContent="center" alignItems="center">
-        <IconButton disabled={title.length == 0 || email.length == 0 || code.length == 0} color="success" onClick={() => {SubmitProblem(title, code.split("\n"), email, description)}}>
-            <Send />
-        </IconButton>
+        <Grid xs={2} display="flex" justifyContent="flex-end" alignItems="center">
+        <Button style={{width:300}} disabled={title.length == 0 || email.length == 0 || code.length == 0} color="success" onClick={() => {SubmitProblem(title, code.split("\n"), email, description)}}variant="contained" endIcon={<Send />}>
+        Submit Problem
+        </Button>
         <Snackbar open={openSuccess} autoHideDuration={6000} onClose={handleClose}>
               <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                 Submitted Successfully!
