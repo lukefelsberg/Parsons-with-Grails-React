@@ -36,6 +36,7 @@ class Problem {
         'Access-Control-Allow-Origin': API_URL? API_URL : "*"},
       }
       fetch(API_URL+"/problems/"+problemid, requestOptions)
+      .then(() => window.location.reload())
 
 
       fetch(API_URL+"/solutions")
@@ -51,12 +52,11 @@ class Problem {
               let entry = data[key];
               if (problemid == String(entry.problemid)) {
                 fetch(API_URL+"/solutions/"+entry.id, requestOptions)
+                .then(() => window.location.reload())
                 console.log("DELETED " + API_URL+"/solutuons/"+entry.id)
               }
             }
           })
-
-      window.location.reload()
     }
 
     ProblemData(): ReactElement {

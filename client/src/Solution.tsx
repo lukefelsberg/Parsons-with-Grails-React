@@ -34,9 +34,8 @@ class Solution {
       console.log(solutionid)
       
       fetch(API_URL+"/solutions/"+solutionid, requestOptions)
+      .then(() => window.location.reload())
       console.log("DELETED " + API_URL+"/solutuons/"+solutionid)
-
-      window.location.reload()
     }
 
     SolutionData(): ReactElement {
