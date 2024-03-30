@@ -28,8 +28,7 @@ npm install
 ```
 You may run into dependency errors, but this resource https://github.com/grails/grails-forge-ui suggests adding `—legacy-peer-deps` to avoid these.
 
-
-
+<br/><br/>
 
 Grails projects rely on Gradle tasks for running applications, so to start both applications run--
 ```bash
@@ -45,7 +44,6 @@ Additionally, to run the tests specified in *ProblemSpec.groovy* and *SolutionSp
 ./gradlew check
 ```
 
-
-
+<br/><br/>
 
 Finally, you'll also need mySQL installed to utilize the database connection, as specified in *application.yml* under configuration. In that file, you'll also need to include the username and password to access your mySQL instance. Installation and further instructions can be found here -- https://dev.mysql.com/doc/mysql-getting-started/en/.
