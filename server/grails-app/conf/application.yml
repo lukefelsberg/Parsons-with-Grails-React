@@ -103,8 +103,8 @@ environments:
             driverClassName: com.mysql.cj.jdbc.Driver
             dbCreate: validate
             url: jdbc:mysql://localhost/test
-            username: root
-            password: luke1108
+            username: xxxxxx
+            password: yyyyyy
     test:
         dataSource:
             dbCreate: update
