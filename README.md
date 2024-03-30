@@ -28,10 +28,7 @@ npm install
 ```
 You may run into dependency errors, but this resource https://github.com/grails/grails-forge-ui suggests adding `—legacy-peer-deps` to avoid these.
 
-And, currently, you'll need to manually install react-router-dom--
-```bash
-npm install react-router-dom —save
-```
+
 
 
 Grails projects rely on Gradle tasks for running applications, so to start both applications run--
@@ -41,7 +38,14 @@ Grails projects rely on Gradle tasks for running applications, so to start both 
 ```bash
 ./gradlew client:bootRun
 ```
-in your `server` and `client` directories, respectively.
+in the project directory.
+
+Additionally, to run the tests specified in *ProblemSpec.groovy* and *SolutionSpec.groovy*, run--
+```bash
+./gradlew check
+```
 
 
-Finally, you'll also need mySQL installed to utilize the database connection, as specified in *application.yml*. In that file, you'll also need to include the username and password to access your mySQL instance. Installation and further instructions can be found here -- https://dev.mysql.com/doc/mysql-getting-started/en/.
+
+
+Finally, you'll also need mySQL installed to utilize the database connection, as specified in *application.yml* under configuration. In that file, you'll also need to include the username and password to access your mySQL instance. Installation and further instructions can be found here -- https://dev.mysql.com/doc/mysql-getting-started/en/.
