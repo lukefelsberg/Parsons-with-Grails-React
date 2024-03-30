@@ -6,35 +6,8 @@ An app based on Luke Felsberg's UF Senior Project, with functionality implemente
 
 Currently, this project provides the ability to create and solve Parsons Problems (https://en.wikipedia.org/wiki/Parsons_problem). Basically, these are drag-and-drop code problems intended for introductory programming course administration.
 
-This project runs entirely locally right now, and development focused on getting familiar with Grails as a web-app framework. Without a need to connect to an external database (like mySQL, DB2, etc.), Grails' server implementation (explained further below) allows for easy storage of test data and communcation with the React client via REST calls.
+This project runs entirely locally right now, and development focused on getting familiar with Grails as a full-stack framework. It is currently set up to interact with a local mySQL database for persistent problem/solution storage.
 
-Here are some screenshots the the app in action--
-
-Stored Problems
-<kbd>
-<img src="https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/ProblemList.png">
-<kbd>
-
-
-Problem Actions
-<kbd>
-<img src="https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/ProblemOptions.png">
-<kbd>
-
-Solving
-<kbd>
-<img src="https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/SolveAndSubmit.png">
-<kbd>
-
-View Newly Submitted Problem
-<kbd>
-<img src="https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/ViewSubmission.png">
-<kbd>
-
-Create New Problem
-<kbd>
-<img src="https://github.com/lukefelsberg/Parsons-with-Grails-React/blob/adding-functionality/ScreenGrabs/CreateProblem.png">
-<kbd>
 
 ## Implementation Background
 
@@ -69,3 +42,6 @@ Grails projects rely on Gradle tasks for running applications, so to start both 
 ./gradlew client:bootRun
 ```
 in your `server` and `client` directories, respectively.
+
+
+Finally, you'll also need mySQL installed to utilize the database connection, as specified in *application.yml*. In that file, you'll also need to include the username and password to access your mySQL instance. Installation and further instructions can be found here -- https://dev.mysql.com/doc/mysql-getting-started/en/.
