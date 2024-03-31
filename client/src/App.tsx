@@ -23,18 +23,6 @@ import bottomNavBar from './bottomNavBar';
 
 function App() {
 
-/* 
-TODO: get query params from URL and assign to some variable of type string[]
-
-resources:
-https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
-ctrl-f for "getAll" to get all query params from the URL
-*/
-
-
-  let dummyStringList: string[] = ['A', 'B', 'C', 'D', 'E'];
-  //const API_URL = "http://localhost:8080"
-  const API_URL = process.env.REACT_APP_API_URI
   const API_URL_NEW = process.env.REACT_APP_API_URL
   console.log(API_URL_NEW)
 
@@ -62,6 +50,7 @@ ctrl-f for "getAll" to get all query params from the URL
   });
 
 
+  const API_URL = process.env.REACT_APP_API_URI
   const router = createBrowserRouter([
     {
       path: "/",
@@ -96,7 +85,7 @@ ctrl-f for "getAll" to get all query params from the URL
       path: "viewsolutions/:problemid",
       loader: async ({ request, params }) => {
         return fetch(
-          API_URL_NEW + "/solutions/"+params.problemid, // use API route for specific problem solutions (still need to add)
+          API_URL_NEW + "/solutions/" + params.problemid,
           { signal: request.signal }
         );
       },
