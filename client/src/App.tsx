@@ -8,9 +8,9 @@ import {
   Link,
   useRouteLoaderData,
 } from "react-router-dom";
-import MenuIcon, { School, Snowboarding, Style } from '@mui/icons-material/';
+import MenuIcon, { School, Bungalow, Instagram, X, Facebook } from '@mui/icons-material/';
 
-import { AppBar, Button, IconButton, Paper, ThemeProvider, Toolbar, Typography, colors, createTheme } from '@mui/material';
+import { AppBar, BottomNavigation, BottomNavigationAction, Box, Button, Grid, IconButton, Paper, ThemeProvider, Toolbar, Typography, colors, createTheme } from '@mui/material';
 import NewProblemView from './NewProblemView';
 import SolutionListView from './SolutionListView';
 import SolveProblemView from './SolveProblemView';
@@ -18,23 +18,11 @@ import { padding } from '@mui/system';
 import ProblemListView from './ProblemListView';
 import ViewSpecificSolution from './ViewSpecificSolution';
 import AboutView from './AboutView';
-
+import bottomNavBar from './bottomNavBar';
 
 
 function App() {
 
-/* 
-TODO: get query params from URL and assign to some variable of type string[]
-
-resources:
-https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
-ctrl-f for "getAll" to get all query params from the URL
-*/
-
-
-  let dummyStringList: string[] = ['A', 'B', 'C', 'D', 'E'];
-  //const API_URL = "http://localhost:8080"
-  const API_URL = process.env.REACT_APP_API_URI
   const API_URL_NEW = process.env.REACT_APP_API_URL
   console.log(API_URL_NEW)
 
@@ -61,22 +49,27 @@ ctrl-f for "getAll" to get all query params from the URL
     },
   });
 
+
+  const API_URL = process.env.REACT_APP_API_URI
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
         <div>
-          <Button variant="outlined" href="about">About Us</Button>
-          <br/><br/>
-          <Button variant="outlined" href="problems">Problems</Button>
-          <br/><br/>
-          <Button variant="outlined" href="new">New Problem</Button>
+          <Typography sx={{ mb: 6 }} variant="h5" component="div">
+            Welcome to <Box fontStyle = 'italic' display = 'inline'>Instructor View</Box>
+          </Typography>
+          <Grid sx={{ mb: 6 }}xs={2} style={{gap:100}} display="flex" justifyContent="center" alignItems="center" columns={{xs:3}}>
+          <Button style={{height: 50, width:300}} variant="outlined" href="about">About</Button>
+          <Button style={{height: 50, width:300}} variant="outlined" href="problems">Problems</Button>
+          <Button style={{height: 50, width:300}} variant="outlined" href="new">Create Problem</Button>
+          </Grid>
         </div>
       ),
     },
     {
       path: "about",
-      element: <AboutView/>,
+      element: <AboutView/>
     },
     {
       path: "solve/:problemid",
@@ -92,7 +85,7 @@ ctrl-f for "getAll" to get all query params from the URL
       path: "viewsolutions/:problemid",
       loader: async ({ request, params }) => {
         return fetch(
-          API_URL_NEW + "/solutions/"+params.problemid, // use API route for specific problem solutions (still need to add)
+          API_URL_NEW + "/solutions/" + params.problemid,
           { signal: request.signal }
         );
       },
@@ -147,7 +140,7 @@ ctrl-f for "getAll" to get all query params from the URL
             <School />
           </IconButton>
           <ThemeProvider theme={boldFontTheme}>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1}}>
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1}}>
             Parsons Problems Platform
           </Typography>
           </ThemeProvider>

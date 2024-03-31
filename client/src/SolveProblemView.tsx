@@ -2,7 +2,7 @@ import { Avatar, ButtonGroup, Card, Grid, IconButton, List, ListItem, ListItemAv
 import React, { useState } from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import { ArrowDownward, ArrowUpward, Fingerprint, Send } from '@mui/icons-material';
+import { ArrowDownward, ArrowUpward, Fingerprint, More, Send } from '@mui/icons-material';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Problem from './Problem';
 import moment from 'moment';
@@ -54,8 +54,6 @@ function SolveProblemView() {
             "problemid": problemid,
             "datetime": new Date()
         }
-        console.log(payload)
-        console.log(payload.problemid)
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',
@@ -95,11 +93,9 @@ function SolveProblemView() {
       
     
 
-    console.log(API_URL)
     let rawData: any = useLoaderData();
-    let problem = new Problem(String(parseInt(rawData.id)-1), rawData.title, rawData.description, rawData.problem, rawData.submitter, moment(rawData.datetime))
+    let problem = new Problem(rawData.id, rawData.title, rawData.description, rawData.problem, rawData.submitter, moment(rawData.datetime))
     let lines = problem.problem
-    console.log(lines)
 
     let keys: number[] = Array.from(lines.keys())
 
@@ -176,7 +172,7 @@ function SolveProblemView() {
                 <TextField id="outlined-basic" label="UFID" value = {UFID} variant="outlined" onChange={e => setUFID(e.target.value)}/> 
             </Grid>
             <Grid xs={1} display="flex" justifyContent="center" alignItems="center">
-                <IconButton color="success" onClick={() => SubmitSolution(UFID, lines, problem.id)} disabled={UFID.length != 8}>
+                <IconButton color="success" onClick={() => SubmitSolution(UFID, getMorphedList(order, lines), problem.id)} disabled={UFID.length != 8}>
                     <Send />
                 </IconButton>
             </Grid>

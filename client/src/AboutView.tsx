@@ -1,11 +1,12 @@
-import { Avatar, ButtonGroup, Card, Grid, IconButton, List, ListItem, ListItemAvatar, ListItemText, Paper, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import { Avatar, Box, ButtonGroup, Card, Grid, IconButton, List, ListItem, ListItemAvatar, ListItemText, Paper, TextField, Typography } from '@mui/material';
+import React, { Fragment, useState } from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { ArrowDownward, ArrowUpward, Fingerprint, Send } from '@mui/icons-material';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Problem from './Problem';
 import moment from 'moment';
+import bottomNavBar from './bottomNavBar';
 
 const API_URL = process.env.REACT_APP_API_URI
 
@@ -20,7 +21,7 @@ function getMorphedList(order: number[], list: string[]) {
 function AboutView() {
 
     
-    let lines: string[] = ['public static void main(String[] args) {','}', 'System.out.println("Hello World")', '}','class HelloWord {'];
+    let lines: string[] = ['public static void main(String[] args) {','}', 'System.out.println("Hello World");', '}','class HelloWord {'];
 
     let keys: number[] = Array.from(lines.keys())
 
@@ -103,9 +104,7 @@ function AboutView() {
     <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
           Students are prompted to submit their solution with their UFID. You can view all submitted solutions to a corresponding problem by clicking the "View Solutions List" button on a problem in the list. 
     </Typography>
-
     </Grid>
-
 }
 
   

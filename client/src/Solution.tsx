@@ -4,6 +4,8 @@ import { ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { Button } from '@mui/material';
 
+const API_URL = "http://localhost:8080"
+
 class Solution {
     id: string;
     problemid: string;
@@ -12,7 +14,7 @@ class Solution {
     datetime: Moment;
     
     constructor (id: string, problemid: string, UFID: string, solution: string[], datetime: Moment) {
-        this.id = String(parseInt(id) + 1);
+        this.id = id;
         this.problemid = problemid;
         this.UFID = UFID;
         this.solution = solution;
@@ -21,6 +23,19 @@ class Solution {
 
     hasUFID() {
       return this.UFID;
+    }
+
+    deleteSolution(solutionid: string) {
+      const requestOptions = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': API_URL? API_URL : "*"},
+      }
+      console.log(solutionid)
+      
+      fetch(API_URL+"/solutions/"+solutionid, requestOptions)
+      .then(() => window.location.reload())
+      console.log("DELETED " + API_URL+"/solutuons/"+solutionid)
     }
 
     SolutionData(): ReactElement {
@@ -51,6 +66,9 @@ class Solution {
                 {this.SolutionData()}
               </Typography>
               <Button variant="contained" href={'/view/'+this.id}>View Solution</Button>
+              <Button style={{float:"right"}}color="error" 
+              onClick={() => {if(window.confirm('Delete this submitted solution?')){this.deleteSolution(this.id)}}} 
+              variant="contained">Delete</Button>
               <Typography sx={{ fontSize: 11 }} color="text.secondary" align={"right"}>
                 id: {this.id}
               </Typography>
